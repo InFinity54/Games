@@ -1,0 +1,32 @@
+body
+{
+    background: rgb(50, 50, 50);
+}
+
+.staff-entry .staff-img
+{
+    border-radius: 0;
+}
+
+.mt-2
+{
+    margin-top: 20px;
+}
+
+.btn-primary
+{
+    background-color: darkgray;
+    border: 1px solid darkgray;
+    color: white !important;
+}
+
+.btn-primary:hover
+{
+    background-color: black !important;
+    border: 1px solid black !important;
+}
+
+.icon
+{
+    color: black !important;
+}

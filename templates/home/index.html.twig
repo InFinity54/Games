@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Jeux enregistrés{% endblock %}
+
+{% block body %}
+    {% set i = 0 %}
+    {% for game in games %}
+        <div class="col-md-3 text-center animate-box">
+            <div class="staff-entry">
+                <a href="#" class="staff-img" style="background-image: url(img/games/icons/{{ (game.name)|replace({" ": "%20"}) }}.png);"></a>
+                <div class="desc">
+                    <h3>{{ game.name }}</h3>
+                    <span>{{ game.company }}<br />Sorti le {{ (game.releasedate)|date("d/m/Y") }}<br />{{ game.type }}</span>
+                    <p>{{ game.description|length > 135 ? game.description|slice(0, 135) ~ '...' : game.description }}</p>
+                    <ul class="colorlib-social-icons">
+                        {% if game.onwin is same as(true) %}<li><a href="#" title="Disponible sur Windows"><i class="icon icon-windows"></i></a></li>{% endif %}
+                        {% if game.onmac is same as(true) %}<li><a href="#" title="Disponible sur Mac"><i class="icon icon-mac"></i></a></li>{% endif %}
+                        {% if game.onlinux is same as(true) %}<li><a href="#" title="Disponible sur Linux"><i class="icon icon-linux"></i></a></li>{% endif %}
+                        {% if game.onps3 is same as(true) %}<li><a href="#" title="Disponible sur PS3"><i class="icon icon-playstation3"></i></a></li>{% endif %}
+                        {% if game.onps4 is same as(true) %}<li><a href="#" title="Disponible sur PS4"><i class="icon icon-playstation4"></i></a></li>{% endif %}
+                        {% if game.onxbox360 is same as(true) %}<li><a href="#" title="Disponible sur Xbox 360"><i class="icon icon-xbox"></i></a></li>{% endif %}
+                        {% if game.onxboxone is same as(true) %}<li><a href="#" title="Disponible sur Xbox One"><i class="icon icon-xbox"></i></a></li>{% endif %}
+                        {% if game.onswitch is same as(true) %}<li><a href="#" title="Disponible sur Nintendo Switch"><i class="icon icon-nintendoswitch"></i></a></li>{% endif %}
+                        {% if game.onandroid is same as(true) %}<li><a href="#" title="Disponible sur Android"><i class="icon icon-android"></i></a></li>{% endif %}
+                        {% if game.onios is same as(true) %}<li><a href="#" title="Disponible sur iOS"><i class="icon icon-appleinc"></i></a></li>{% endif %}
+                    </ul>
+                    <center><a href="#" class="btn btn-primary mt-2">Plus d'infos</a></center>
+                </div>
+            </div>
+        </div>
+        {% set i = i + 1 %}
+        {% if i >= 4 %}
+            </div>
+            <div class="row">
+            {% set i = 0 %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}

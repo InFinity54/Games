@@ -64,37 +64,12 @@ class Games
     /**
      * @ORM\Column(type="boolean")
      */
-    private $onPsp;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
     private $onXbox360;
 
     /**
      * @ORM\Column(type="boolean")
      */
     private $onXboxOne;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $onDs;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $on3ds;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $onWii;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $onWiiU;
 
     /**
      * @ORM\Column(type="boolean")
@@ -110,6 +85,11 @@ class Games
      * @ORM\Column(type="boolean")
      */
     private $onIos;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $company;
 
     public function getId(): ?int
     {
@@ -224,18 +204,6 @@ class Games
         return $this;
     }
 
-    public function getOnPsp(): ?bool
-    {
-        return $this->onPsp;
-    }
-
-    public function setOnPsp(bool $onPsp): self
-    {
-        $this->onPsp = $onPsp;
-
-        return $this;
-    }
-
     public function getOnXbox360(): ?bool
     {
         return $this->onXbox360;
@@ -256,54 +224,6 @@ class Games
     public function setOnXboxOne(bool $onXboxOne): self
     {
         $this->onXboxOne = $onXboxOne;
-
-        return $this;
-    }
-
-    public function getOnDs(): ?bool
-    {
-        return $this->onDs;
-    }
-
-    public function setOnDs(bool $onDs): self
-    {
-        $this->onDs = $onDs;
-
-        return $this;
-    }
-
-    public function getOn3ds(): ?bool
-    {
-        return $this->on3ds;
-    }
-
-    public function setOn3ds(bool $on3ds): self
-    {
-        $this->on3ds = $on3ds;
-
-        return $this;
-    }
-
-    public function getOnWii(): ?bool
-    {
-        return $this->onWii;
-    }
-
-    public function setOnWii(bool $onWii): self
-    {
-        $this->onWii = $onWii;
-
-        return $this;
-    }
-
-    public function getOnWiiU(): ?bool
-    {
-        return $this->onWiiU;
-    }
-
-    public function setOnWiiU(bool $onWiiU): self
-    {
-        $this->onWiiU = $onWiiU;
 
         return $this;
     }
@@ -340,6 +260,18 @@ class Games
     public function setOnIos(bool $onIos): self
     {
         $this->onIos = $onIos;
+
+        return $this;
+    }
+
+    public function getCompany(): ?string
+    {
+        return $this->company;
+    }
+
+    public function setCompany(string $company): self
+    {
+        $this->company = $company;
 
         return $this;
     }
