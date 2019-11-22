@@ -1,13 +1,13 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Jeux enregistrés{% endblock %}
+{% block title %}Liste des jeux{% endblock %}
 
 {% block body %}
     {% set i = 0 %}
     {% for game in games %}
         <div class="col-md-3 text-center animate-box">
             <div class="staff-entry">
-                <a href="#" class="staff-img" style="background-image: url(img/games/icons/{{ (game.name)|replace({" ": "%20"}) }}.png);"></a>
+                <a href="{{ path("game", { "id": (game.id) }, true) }}" class="staff-img" style="background-image: url(img/games/icons/{{ (game.name)|replace({" ": "%20"}) }}.png);"></a>
                 <div class="desc">
                     <h3>{{ game.name }}</h3>
                     <span>{{ game.company }}<br />Sorti le {{ (game.releasedate)|date("d/m/Y") }}<br />{{ game.type }}</span>
@@ -24,7 +24,7 @@
                         {% if game.onandroid is same as(true) %}<li><a href="#" title="Disponible sur Android"><i class="icon icon-android"></i></a></li>{% endif %}
                         {% if game.onios is same as(true) %}<li><a href="#" title="Disponible sur iOS"><i class="icon icon-appleinc"></i></a></li>{% endif %}
                     </ul>
-                    <center><a href="#" class="btn btn-primary mt-2">Plus d'infos</a></center>
+                    <a href="{{ path("game", { "id": (game.id) }, true) }}" class="btn btn-primary mt-2">Plus d'infos</a>
                 </div>
             </div>
         </div>

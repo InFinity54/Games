@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Détails sur {{ game.name }}{% endblock %}
+
+{% block body %}
+    <div class="col-sm-12 animate-box">
+        <div class="staff-entry">
+            <div href="#" class="staff-img" style="background-image: url({{ path("home") }}img/games/icons/{{ (game.name)|replace({" ": "%20"}) }}.png);"></div>
+            <div class="desc">
+                <center><h3>{{ game.name }}</h3></center>
+                <p>Par {{ game.company }} - Sorti le {{ (game.releasedate)|date("d/m/Y") }} - {{ game.type }}</p>
+                <ul class="colorlib-social-icons">
+                    {% if game.onwin is same as(true) %}<li><a href="#" title="Disponible sur Windows"><i class="icon icon-windows"></i></a></li>{% endif %}
+                    {% if game.onmac is same as(true) %}<li><a href="#" title="Disponible sur Mac"><i class="icon icon-mac"></i></a></li>{% endif %}
+                    {% if game.onlinux is same as(true) %}<li><a href="#" title="Disponible sur Linux"><i class="icon icon-linux"></i></a></li>{% endif %}
+                    {% if game.onps3 is same as(true) %}<li><a href="#" title="Disponible sur PS3"><i class="icon icon-playstation3"></i></a></li>{% endif %}
+                    {% if game.onps4 is same as(true) %}<li><a href="#" title="Disponible sur PS4"><i class="icon icon-playstation4"></i></a></li>{% endif %}
+                    {% if game.onxbox360 is same as(true) %}<li><a href="#" title="Disponible sur Xbox 360"><i class="icon icon-xbox"></i></a></li>{% endif %}
+                    {% if game.onxboxone is same as(true) %}<li><a href="#" title="Disponible sur Xbox One"><i class="icon icon-xbox"></i></a></li>{% endif %}
+                    {% if game.onswitch is same as(true) %}<li><a href="#" title="Disponible sur Nintendo Switch"><i class="icon icon-nintendoswitch"></i></a></li>{% endif %}
+                    {% if game.onandroid is same as(true) %}<li><a href="#" title="Disponible sur Android"><i class="icon icon-android"></i></a></li>{% endif %}
+                    {% if game.onios is same as(true) %}<li><a href="#" title="Disponible sur iOS"><i class="icon icon-appleinc"></i></a></li>{% endif %}
+                </ul>
+                <p>{{ game.description }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

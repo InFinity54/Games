@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Erreur{% endblock %}
+
+{% block body %}
+    <div class="col-sm-12 animate-box">
+        <h3>Erreur :(</h3>
+        <p>Aucun jeu n'a été communiqué. Aucune page ne peut donc s'afficher...</p>
+        <a href="{{ path("home", {}, true) }}">Retourner à la liste des jeux</a>
+    </div>
+{% endblock %}
