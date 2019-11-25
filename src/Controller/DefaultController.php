@@ -14,7 +14,7 @@ class DefaultController extends AbstractController
     {
         $games = $this->getDoctrine()
             ->getRepository(Games::class)
-            ->findAll();
+            ->findBy(array(), array("releaseDate" => "DESC"));
 
         return $this->render('home/index.html.twig', [
             "games" => $games

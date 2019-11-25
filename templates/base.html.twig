@@ -29,14 +29,14 @@
         <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
         <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
         {% block stylesheets %}
         {% endblock %}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
         <script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
         <!--[if lt IE 9]>
-        <script src="">{{ asset('js/respond.min.js') }}</script>
+        <script src="{{ asset('js/respond.min.js') }}"></script>
         <![endif]-->
         {% block headjavascripts %}
         {% endblock %}
@@ -54,7 +54,8 @@
                             </div>
                             <div class="col-md-10 text-right menu-1">
                                 <ul>
-                                    <li class="active"><a href="/">Liste des jeux</a></li>
+                                    <li class="active"><a href="{{ path("home") }}">Liste des jeux</a></li>
+                                    <li class="active"><a href="{{ path("new_game") }}">Ajouter un jeu</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -85,9 +86,9 @@
             <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
             <script src="{{ asset('js/magnific-popup-options.js') }}"></script>
             <script src="{{ asset('js/jquery.countTo.js') }}"></script>
-            <script src="{{ asset('js/main.js') }}"></script>
             {% block javascripts %}
             {% endblock %}
+            <script src="{{ asset('js/main.js') }}"></script>
         </div>
     </body>
 </html>
