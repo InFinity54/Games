@@ -21,9 +21,9 @@ class GamesFiltersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add("type", ChoiceType::class, ["required" => false, "label" => "Type de jeu", "choices" => $this->getTypes()])
-            ->add("company", ChoiceType::class, ["required" => false, "label" => "Créateur", "choices" => $this->getCompanies()])
-            ->add("platform", ChoiceType::class, ["required" => false, "label" => "Plateforme", "choices" => $this->getPlatforms()])
+            ->add("type", ChoiceType::class, ["required" => false, "label" => false, "placeholder" => "Type de jeu", "choices" => $this->getTypes()])
+            ->add("company", ChoiceType::class, ["required" => false, "label" => false, "placeholder" => "Créateur", "choices" => $this->getCompanies()])
+            ->add("platform", ChoiceType::class, ["required" => false, "label" => false, "placeholder" => "Plateforme", "choices" => $this->getPlatforms()])
             ->add('submit', SubmitType::class, ["label" => "GO !"])
         ;
     }
