@@ -1,13 +1,31 @@
 {% extends "base.html.twig" %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block title %}Liste des jeux{% endblock %}
 
 {% block body %}
+    <div class="col-sm-12 text-center mb-2">
+        {{ form_start(form, {'action': path('home'), 'method': 'GET'}) }}
+            <!-- type (FPS, Rythme...) ; entreprise ; plateformes -->
+            <div class="col-md-3">
+                {{ form_row(form.type) }}
+            </div>
+            <div class="col-md-3">
+                {{ form_row(form.company) }}
+            </div>
+            <div class="col-md-3">
+                {{ form_row(form.platform) }}
+            </div>
+            <div class="col-md-3">
+                {{ form_row(form.submit) }}
+            </div>
+        {{ form_end(form) }}
+    </div>
     {% set i = 0 %}
     {% for game in games %}
         <div class="col-md-3 text-center animate-box">
             <div class="staff-entry">
-                <a href="{{ path("game", { "id": (game.id) }, true) }}" class="staff-img" style="background-image: url(img/games/icons/{{ (game.name)|replace({" ": "%20"}) }}.png);"></a>
+                <a href="{{ path("game", { "id": (game.id) }, true) }}" class="staff-img" style="background-image: url(img/games/icons/{{ (game.name)|replace({" ": "%20"})|replace({"'": ""}) }}.png);"></a>
                 <div class="desc">
                     <h3>{{ game.name }}</h3>
                     <span>{{ game.company }}<br />Sorti le {{ (game.releasedate)|date("d/m/Y") }}<br />{{ game.type }}</span>

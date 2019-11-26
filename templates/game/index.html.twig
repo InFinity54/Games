@@ -5,7 +5,7 @@
 {% block body %}
     <div class="col-sm-12 animate-box">
         <div class="staff-entry">
-            <div href="#" class="staff-img" style="background-image: url({{ path("home") }}img/games/icons/{{ (game.name)|replace({" ": "%20"}) }}.png);"></div>
+            <div href="#" class="staff-img" style="background-image: url({{ path("home") }}img/games/icons/{{ (game.name)|replace({" ": "%20"})|replace({"'": ""}) }}.png);"></div>
             <div class="desc">
                 <center><h3>{{ game.name }}</h3></center>
                 <p>Par {{ game.company }} - Sorti le {{ (game.releasedate)|date("d/m/Y") }} - {{ game.type }}</p>
