@@ -28,7 +28,7 @@
                 <a href="{{ path("game", { "id": (game.id) }, true) }}" class="staff-img" style="background-image: url(img/games/icons/{{ (game.name)|replace({" ": "%20"})|replace({"'": ""}) }}.png);"></a>
                 <div class="desc">
                     <h3>{{ game.name }}</h3>
-                    <span>{{ game.company }}<br />Sorti le {{ (game.releasedate)|date("d/m/Y") }}<br />{{ game.type }}</span>
+                    <span>{{ game.company }}<br />{% if game.releasedate is defined and game.releasedate is not null %}Sorti le {{ (game.releasedate)|date("d/m/Y") }}{% else %}Bientôt disponible{% endif %}<br />{{ game.type }}</span>
                     <p>{{ game.description|length > 135 ? game.description|slice(0, 135) ~ '...' : game.description }}</p>
                     <ul class="colorlib-social-icons">
                         {% if game.onwin is same as(true) %}<li><a href="#" title="Disponible sur Windows"><i class="icon icon-windows"></i></a></li>{% endif %}
