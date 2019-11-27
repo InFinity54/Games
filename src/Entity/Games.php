@@ -2,10 +2,19 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GamesRepository")
+ * @ApiResource(
+ *     collectionOperations={"GET", "POST"},
+ *     itemOperations={"GET"={"path"="/game/{id}"}, "PUT"={"path"="/game/{id}"}, "DELETE"={"path"="/game/{id}"}}
+ * )
+ * @ApiFilter(SearchFilter::class, properties={"name": "exact", "company": "exact", "type": "exact"})
  */
 class Games
 {
@@ -132,12 +141,12 @@ class Games
         return $this;
     }
 
-    public function getReleaseDate(): ?\DateTimeInterface
+    public function getReleaseDate(): ?DateTimeInterface
     {
         return $this->releaseDate;
     }
 
-    public function setReleaseDate(?\DateTimeInterface $releaseDate): self
+    public function setReleaseDate(?DateTimeInterface $releaseDate): self
     {
         $this->releaseDate = $releaseDate;
 
