@@ -11,8 +11,43 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GamesRepository")
  * @ApiResource(
- *     collectionOperations={"GET", "POST"},
- *     itemOperations={"GET"={"path"="/game/{id}"}, "PUT"={"path"="/game/{id}"}, "DELETE"={"path"="/game/{id}"}}
+ *     collectionOperations={
+ *          "GET"={
+ *              "swagger_context"={
+ *                  "summary"="Récupère les informations des jeux référencés.",
+ *                  "description"="Permet de récupérer l'intégralité des informations existantes concernant l'intégralité des jeux référencés."
+ *              }
+ *          },
+ *          "POST"={
+ *              "swagger_context"={
+ *                  "summary"="Ajoute un nouveau jeu.",
+ *                  "description"="Spécifie les informations d'un nouveau jeu à ajouter à la base de données."
+ *              }
+ *          }
+ *     },
+ *     itemOperations={
+ *          "GET"={
+ *              "path"="/game/{id}",
+ *              "swagger_context"={
+ *                  "summary"="Récupère les informations d'un jeu",
+ *                  "description"="Permet de récupérer l'intégralité des informations existantes concernant le jeu demandé."
+ *              }
+ *          },
+ *          "PUT"={
+ *              "path"="/game/{id}",
+ *              "swagger_context"={
+ *                  "summary"="Modifie les informations d'un jeu.",
+ *                  "description"="Spécifie les informations qui remplaceront celles existantes concernant le jeu spécifié."
+ *              }
+ *          },
+ *          "DELETE"={
+ *              "path"="/game/{id}",
+ *              "swagger_context"={
+ *                  "summary"="Supprime un jeu.",
+ *                  "description"="Supprime le jeu spécifié de la base de données."
+ *              }
+ *          }
+ *     }
  * )
  * @ApiFilter(SearchFilter::class, properties={"name": "exact", "company": "exact", "type": "exact"})
  */
